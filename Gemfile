@@ -38,6 +38,9 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Adding support for rspec testing
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
