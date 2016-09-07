@@ -29,6 +29,9 @@ gem 'rails_12factor', group: :production
 # Use Twitter Bootstrap 3
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Adding Simple_Form Gem
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
