@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # logs to stdout and dev/prod asset delivery parity in Heroku https://git.io/v69qq
 gem 'rails_12factor', group: :production
 
+# Use Twitter Bootstrap 3
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
