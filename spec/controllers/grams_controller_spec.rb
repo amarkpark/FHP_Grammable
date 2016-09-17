@@ -11,7 +11,16 @@ RSpec.describe GramsController, type: :controller do
   describe "grams#new action" do
     it "successfully loads new message form" do
       get :new
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe "grams#create action" do
+    it "successfully creates a gram and saves to DB" do
+      post :create, gram: {message: "Test gram check check"}
+      expect(response).to redirect_to root_path
+      gram = Gram.last
+      expect(gram.message).to eq("Test gram check check")
     end
   end
 end
