@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
-  let(:user1) {User.create(
-      email:                 'fakeuser@gmail.com',
-      password:              'secretPassword',
-      password_confirmation: 'secretPassword'
-    )}
+  let(:user1) { FactoryGirl.create(:user)}
 
   describe "grams#index action" do
     it "successfully loads the page" do
