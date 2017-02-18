@@ -20,6 +20,11 @@ RSpec.describe GramsController, type: :controller do
       get :new
       expect(response).to have_http_status(200)
     end
+
+    it "requires user to be logged in to add gram" do
+      get :new
+      expect(response).to redirect_to new_user_session_path
+    end
   end
 
   describe "grams#create action" do
@@ -29,8 +34,14 @@ RSpec.describe GramsController, type: :controller do
       expect(response).to redirect_to root_path
       gram = Gram.last
       expect(gram.message).to eq("Test gram check check")
+      expect(gram.user).to eq(user1)
     end
 
+    it "requires users to be signed in" do
+      post :create, gram: {messae: "I'm not logged in."}
+      expect(response).to redirect_to new_user_session_path
+    end
+ 
     it "will not process invalid entries" do
       sign_in user1
       precount = Gram.count
